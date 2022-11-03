@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:43:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/03 15:11:15 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/03 15:17:37 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int		hex_to_int(char *hex);
 int		index_of(char *s, char c);
 
 /* draw */
+void	draw(t_fdf *fdf);
 
 /* display */
 void	display_menu(t_fdf *d);

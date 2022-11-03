@@ -6,13 +6,13 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/fdf",
-			"args": ["./test_maps/42.fdf"],
+			"args": ["./test_maps/elem-fract.fdf"],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
 			"externalConsole": false,
 			"MIMode": "lldb",
-			"preLaunchTask": "C/C++: clang++ build active file"
+			"preLaunchTask": "make re"
 		}
 	]
 }

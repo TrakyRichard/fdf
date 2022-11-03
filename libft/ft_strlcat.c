@@ -6,11 +6,11 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 05:21:07 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/07/11 01:25:21 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/02 09:39:04 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

@@ -6,11 +6,11 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 21:52:25 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/07/02 23:40:41 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/02 09:39:04 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

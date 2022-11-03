@@ -6,11 +6,11 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 05:00:15 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/07/08 22:57:28 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/02 09:39:04 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

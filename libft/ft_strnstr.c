@@ -6,11 +6,11 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 06:55:27 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/06/30 03:15:22 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/02 09:39:04 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

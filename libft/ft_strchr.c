@@ -6,11 +6,11 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 22:12:28 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/01 07:04:43 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/02 09:59:38 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

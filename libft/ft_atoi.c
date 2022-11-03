@@ -6,11 +6,11 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 07:49:50 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/10/25 19:03:53 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/02 09:39:04 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static long long	my_atoi(const char *str, int i, int sign)
 {

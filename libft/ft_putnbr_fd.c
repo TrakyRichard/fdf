@@ -6,11 +6,11 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 05:31:25 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/07/11 00:40:33 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/02 09:40:06 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	fd_modulo(int *n)
 {

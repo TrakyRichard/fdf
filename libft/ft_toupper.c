@@ -6,13 +6,13 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 21:56:48 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/06/27 21:51:40 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/02 09:39:04 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-int	ft_toupper(int c)
+int	ft_toupper(char c)
 {
 	if (c >= 97 && c <= 122)
 		c -= 32;

@@ -27,6 +27,14 @@
 		"system_error": "c",
 		"tuple": "c",
 		"type_traits": "c",
-		"get_next_line2.h": "c"
+		"get_next_line2.h": "c",
+		"stdlib.h": "c",
+		"cstdlib": "c",
+		"ostream": "c",
+		"new": "c",
+		"ios": "c",
+		"math.h": "c",
+		"__locale": "c",
+		"unistd.h": "c"
 	}
 }

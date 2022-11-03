@@ -1,28 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   io.c                                               :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 06:43:20 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/02 08:25:45 by rkanmado         ###   ########.fr       */
+/*   Created: 2022/11/02 06:18:23 by rkanmado          #+#    #+#             */
+/*   Updated: 2022/11/02 09:11:42 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
-/* Display the informations into stack a */
-void	ft_display_stack(t_st *head)
+
+/* Function to free stack */
+void	free_st(t_st **h, t_st **t, int *size)
 {
 	t_st	*tmp;
 
-	tmp = head;
-	while (tmp != NULL && tmp->next != NULL)
+	if (*h == NULL)
+		return ;
+	tmp = *h;
+	while (tmp->next != NULL)
 	{
-		ft_putchar_fd(tmp->i.elt.z_val, 1);
 		tmp = tmp->next;
+		free(tmp->prev);
 	}
-	if (tmp != NULL)
-		ft_putchar_fd(tmp->i.elt.z_val, 1);
+	free(tmp);
+	*h = NULL;
+	*size = 0;
+	*t = NULL;
+	return ;
+}
+
+
+void	free_fdf(t_fdf *fdf)
+{
+	free(fdf->elts);
+	free_st(&fdf->points.head, &fdf->points.tail, &fdf->points.size);
+	return ;
+}
+
+void	ft_free_dbl_point(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != NULL)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 	return ;
 }

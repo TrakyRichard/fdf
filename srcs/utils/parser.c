@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 03:13:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/01 07:46:56 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/02 10:03:14 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,38 +32,48 @@ static size_t	ft_word_count(char const *s, char c)
 
 void	retrieve_line(t_fdf *fdf, char	*line, int fd)
 {
-	int			line_nbr;
+	int			row;
 
-	line_nbr = 1;
+	row = 0;
 	if (ft_strlen(line) > 0)
-		fdf->x_nbr = ft_word_count(line, ' ');
+		fdf->c = ft_word_count(line, ' ') + 1;
 	while (line)
 	{
-		parser_process(fdf, line, line_nbr);
+		parser_process(fdf, line, row);
 		free(line);
 		line = get_next_line(fd);
 		if (line != NULL)
-			line_nbr++;
+			row++;
 	}
-	fdf->y_nbr = line_nbr;
+	fdf->r = row + 1;
 	return ;
 }
 
-void	parser_process(t_fdf *fdf, char *line, int line_nbr)
+void	parser_process(t_fdf *fdf, char *line, int row)
 {
 	char	**split;
 	int		counter;
 	int		value;
+	int		hex;
+	char	**val_and_hex;
 
 	split = ft_split(line, ' ');
 	counter = 0;
 	value = 0;
 	while (split[counter] != NULL)
 	{
-		value = ft_atoi(split[counter]);
-		ft_unshift(&fdf->points, set_info(counter, line_nbr, value));
+		val_and_hex = ft_split(split[counter], ',');
+		value = ft_atoi(val_and_hex[0]);
+		if (val_and_hex[1] != NULL)
+			hex = hex_to_int(val_and_hex[1] + 2);
+		else
+			hex = -1;
+		ft_unshift(&fdf->points, set_info(row, counter, value, hex));
 		counter++;
+		ft_free_dbl_point(val_and_hex);
 	}
+	ft_free_dbl_point(split);
+	return ;
 }
 
 void	parser(char *file, t_fdf *fdf)
@@ -77,5 +87,7 @@ void	parser(char *file, t_fdf *fdf)
 		ft_error("error while opening the file");
 	line = get_next_line(fd);
 	retrieve_line(fdf, line, fd);
+	fill_st_in_elts(fdf);
+	free_st(&fdf->points.head, &fdf->points.tail, &fdf->points.size);
 	return ;
 }

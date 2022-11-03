@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   io.c                                               :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/29 06:43:20 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/02 08:25:45 by rkanmado         ###   ########.fr       */
+/*   Created: 2022/11/03 15:10:30 by rkanmado          #+#    #+#             */
+/*   Updated: 2022/11/03 15:10:48 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
-/* Display the informations into stack a */
-void	ft_display_stack(t_st *head)
-{
-	t_st	*tmp;
 
-	tmp = head;
-	while (tmp != NULL && tmp->next != NULL)
-	{
-		ft_putchar_fd(tmp->i.elt.z_val, 1);
-		tmp = tmp->next;
-	}
-	if (tmp != NULL)
-		ft_putchar_fd(tmp->i.elt.z_val, 1);
+void	display_menu(t_fdf *d)
+{
+	int		color;
+	void	*win_ptr;
+	void	*mlx_ptr;
+
+	win_ptr = d->wi.mlx_ptr;
+	mlx_ptr = d->wi.mlx_ptr;
+	color = 0xFFFFF;
+	mlx_string_put(mlx_ptr, win_ptr, 10, 20, color, "move -> arrow");
+	mlx_string_put(mlx_ptr, win_ptr, 10, 20, color, "2D/3D -> i");
+	mlx_string_put(mlx_ptr, win_ptr, 10, 20, color, "Exit -> esc");
+	mlx_string_put(mlx_ptr, win_ptr, 10, 20, color, "full screen -> f");
 	return ;
 }

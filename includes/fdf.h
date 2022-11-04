@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:43:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/03 15:17:37 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/04 22:05:46 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ typedef struct s_elements
 	int	hex;
 	int	z_val;
 }	t_elt;
+
+typedef struct s_coords
+{
+	int	x0;
+	int	x1;
+	int	y0;
+	int	y1;
+}	t_coords;
 
 typedef struct s_stack_info
 {

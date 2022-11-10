@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 03:13:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/02 10:03:14 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/10 03:25:47 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ void	parser(char *file, t_fdf *fdf)
 	line = get_next_line(fd);
 	retrieve_line(fdf, line, fd);
 	fill_st_in_elts(fdf);
-	free_st(&fdf->points.head, &fdf->points.tail, &fdf->points.size);
+	// free_st(&fdf->points.head, &fdf->points.tail, &fdf->points.size);
 	return ;
 }

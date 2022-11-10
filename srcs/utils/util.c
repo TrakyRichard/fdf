@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 07:20:09 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/03 15:10:09 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/09 23:37:58 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,12 @@ int	index_of(char *s, char c)
 		counter++;
 	}
 	return (-1);
+}
+
+int	abs(int a)
+{
+	if (a < 0)
+		return (a * -1);
+	else
+		return (a);
 }

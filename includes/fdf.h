@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:43:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/04 22:05:46 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/10 05:49:44 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_coords
 	int	x1;
 	int	y0;
 	int	y1;
+	int	z0;
+	int	z1;
 }	t_coords;
 
 typedef struct s_stack_info
@@ -41,7 +43,6 @@ typedef struct s_stack_info
 	int		x;
 	int		y;
 }	t_si;
-
 
 typedef struct s_stack
 {
@@ -61,8 +62,17 @@ typedef struct s_window_info
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	int		sx;
-	int		sy;
+	int		shift_x;
+	int		shift_y;
+	int		win_x;
+	int		win_y;
+	float	z_multi;
+	float	rot_x;
+	float	rot_y;
+	float	rot_z;
+	int		zoom;
+	int		is_iso;
+	int		is_blur;
 }	t_winfo;
 
 typedef struct s_fdf
@@ -81,6 +91,24 @@ typedef struct s_data {
 	int		line_length;
 	int		endian;
 }	t_data;
+
+typedef struct s_bresenham
+{
+	int	x;
+	int	y;
+	int	z;
+	int	dx;
+	int	dy;
+	int	dz;
+	int	p;
+}	t_b;
+
+typedef struct s_increment
+{
+	int	xs;
+	int	ys;
+	int	zs;
+}	t_i;
 
 int		main(int argc, char **argv);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -118,8 +146,20 @@ int		index_of(char *s, char c);
 
 /* draw */
 void	draw(t_fdf *fdf);
+void	set_coord(t_st *st, t_coords *c);
+void	bresenham(t_coords *c, t_fdf *f);
 
 /* display */
 void	display_menu(t_fdf *d);
+
+/* key */
+int		is_valid_key(int key);
+void	manage_trans(int key, t_winfo *wi);
+void	manage_rot(int key, t_winfo *wi);
+void	manage_mut(int key, t_winfo *wi);
+int		key_handler(int key, t_fdf *fdf);
+
+/* close */
+int		win_close(t_fdf *fdf);
 
 #endif

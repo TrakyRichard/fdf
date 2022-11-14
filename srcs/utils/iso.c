@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 21:56:30 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/14 22:38:25 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:39:42 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	init_coord(t_coords *c)
 t_coords	isometric(t_fdf *f, t_coords *c)
 {
 	t_coords	res;
+
 	init_coord(c);
 }

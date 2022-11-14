@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 03:13:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/10 03:25:47 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/12 19:00:36 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	retrieve_line(t_fdf *fdf, char	*line, int fd)
 
 	row = 0;
 	if (ft_strlen(line) > 0)
-		fdf->c = ft_word_count(line, ' ') + 1;
+		fdf->c = ft_word_count(line, ' ');
 	while (line)
 	{
 		parser_process(fdf, line, row);
@@ -68,7 +68,7 @@ void	parser_process(t_fdf *fdf, char *line, int row)
 			hex = hex_to_int(val_and_hex[1] + 2);
 		else
 			hex = -1;
-		ft_unshift(&fdf->points, set_info(row, counter, value, hex));
+		ft_unshift(&fdf->points, set_info(counter, row, value, hex));
 		counter++;
 		ft_free_dbl_point(val_and_hex);
 	}
@@ -88,6 +88,5 @@ void	parser(char *file, t_fdf *fdf)
 	line = get_next_line(fd);
 	retrieve_line(fdf, line, fd);
 	fill_st_in_elts(fdf);
-	// free_st(&fdf->points.head, &fdf->points.tail, &fdf->points.size);
 	return ;
 }

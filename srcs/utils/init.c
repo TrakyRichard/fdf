@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 06:17:21 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/10 05:48:44 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:25:40 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ void	init_fdf(t_fdf *fdf)
 
 void	init_win_info(t_winfo *wi)
 {
-	wi->shift_x = 1900;
-	wi->shift_y = 1080;
+	wi->win_x = 2460;
+	wi->win_y = 1080;
+	wi->scale = 35;
+	wi->shift_x = wi->win_x / 2;
+	wi->shift_y = wi->win_y / 3;
 	wi->mlx_ptr = mlx_init();
-	wi->win_ptr = mlx_new_window(wi->mlx_ptr, wi->shift_x, wi->shift_y, "FDF");
+	wi->win_ptr = mlx_new_window(wi->mlx_ptr, wi->win_x, wi->win_y, "FDF");
 	return ;
 }
 
@@ -59,10 +62,10 @@ void	fill_st_in_elts(t_fdf *fdf)
 	tmp = fdf->points.head;
 	ptr = NULL;
 	counter = 0;
-	len = sizeof(t_elt *) * fdf->r + sizeof(t_elt) * fdf->c * fdf->r;
+	len = sizeof(t_elt *) * fdf->c + sizeof(t_elt) * fdf->c * fdf->r;
 	fdf->elts = (t_elt **) malloc(len);
 	ptr = (t_elt *)(fdf->elts + fdf->r);
-	while (counter <= fdf->r)
+	while (counter < fdf->r)
 	{
 		fdf->elts[counter] = (ptr + fdf->c * counter);
 		counter++;
@@ -71,7 +74,7 @@ void	fill_st_in_elts(t_fdf *fdf)
 	{
 		new.hex = tmp->i.elt.hex;
 		new.z_val = tmp->i.elt.z_val;
-		fdf->elts[tmp->i.x][tmp->i.y] = new;
+		fdf->elts[tmp->i.y][tmp->i.x] = new;
 		tmp = tmp->next;
 	}
 	return ;

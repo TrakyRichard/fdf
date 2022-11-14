@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:43:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/10 05:49:44 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:26:50 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_window_info
 	void	*win_ptr;
 	int		shift_x;
 	int		shift_y;
+	int		scale;
 	int		win_x;
 	int		win_y;
 	float	z_multi;
@@ -96,6 +97,8 @@ typedef struct s_bresenham
 {
 	int	x;
 	int	y;
+	int	x_pos;
+	int	y_pos;
 	int	z;
 	int	dx;
 	int	dy;
@@ -147,6 +150,7 @@ int		index_of(char *s, char c);
 /* draw */
 void	draw(t_fdf *fdf);
 void	set_coord(t_st *st, t_coords *c);
+void	put_pixel(t_fdf *f, t_b *b, t_coords *c);
 void	bresenham(t_coords *c, t_fdf *f);
 
 /* display */
@@ -161,5 +165,8 @@ int		key_handler(int key, t_fdf *fdf);
 
 /* close */
 int		win_close(t_fdf *fdf);
+
+/* isometric */
+void	init_coord(t_coords *c);
 
 #endif

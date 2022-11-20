@@ -35,6 +35,7 @@
 		"ios": "c",
 		"math.h": "c",
 		"__locale": "c",
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"types.h": "c"
 	}
 }

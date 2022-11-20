@@ -1,0 +1,23 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/rkanmado/42 Path/fdf'
+cc -Wall -Wextra -Werror -g3   -c -o srcs/fdf.o srcs/fdf.c
+ 
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/error.o srcs/utils/error.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/init.o srcs/utils/init.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/ops.o srcs/utils/ops.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/parser.o srcs/utils/parser.c
+cc -Wall -Wextra -Werror -g3   -c -o get_next_line/get_next_line.o get_next_line/get_next_line.c
+cc -Wall -Wextra -Werror -g3   -c -o get_next_line/get_next_line_utils.o get_next_line/get_next_line_utils.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/io.o srcs/utils/io.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/util.o srcs/utils/util.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/free.o srcs/utils/free.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/display.o srcs/utils/display.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/draw.o srcs/utils/draw.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/close.o srcs/utils/close.c
+cc -Wall -Wextra -Werror -g3   -c -o srcs/utils/key.o srcs/utils/key.c
+make -C libft/
+make -C minilibx_macos
+make -C get_next_line/
+cc -Wall -Wextra -Werror -g3 ./srcs/fdf.o ./srcs/utils/error.o ./srcs/utils/init.o ./srcs/utils/ops.o ./srcs/utils/parser.o get_next_line/get_next_line.o get_next_line/get_next_line_utils.o ./srcs/utils/io.o ./srcs/utils/util.o ./srcs/utils/free.o ./srcs/utils/display.o ./srcs/utils/draw.o ./srcs/utils/close.o ./srcs/utils/key.o -o fdf -Lminilibx_macos -lmlx -Llibft/ -lft -framework OpenGL -framework AppKit -I./includes
+make: Leaving directory `/Users/rkanmado/42 Path/fdf'
+ 

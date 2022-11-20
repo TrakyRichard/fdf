@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:07:42 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/12 19:04:18 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/20 22:36:02 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	set_coord(t_st *st, t_coords *c)
 	c->y1 = st->next->i.y;
 	c->z0 = st->i.elt.z_val;
 	c->z1 = st->next->i.elt.z_val;
+	c->slope = st->i.elt.z_val - st->next->i.elt.z_val;
 	return ;
 }
 
@@ -51,14 +52,8 @@ void	init_bresenham(t_b *b, t_coords *c)
 
 void	put_pixel(t_fdf *f, t_b	*b, t_coords *c)
 {
-	b->x_pos = f->wi.shift_x + (b->x * f->wi.scale);
-	b->y_pos = f->wi.shift_y + (b->y * f->wi.scale);
-	if (f->elts[c->y1][c->x1].z_val == 0)
-		mlx_pixel_put(f->wi.mlx_ptr, f->wi.win_ptr, b->x_pos, \
-				b->y_pos, 0xF7E733);
-	else
-		mlx_pixel_put(f->wi.mlx_ptr, f->wi.win_ptr, b->x_pos, \
-		b->y_pos, 0xFFFFF);
+	mlx_pixel_put(f->wi.mlx_ptr, f->wi.win_ptr, b->x_pos, \
+	b->y_pos, c->color);
 }
 
 void	bresenham(t_coords *c, t_fdf *f)
@@ -66,6 +61,11 @@ void	bresenham(t_coords *c, t_fdf *f)
 	t_b	b;
 
 	init_bresenham(&b, c);
+	set_color(c, f);
+	if (f->wi.is_iso == 1)
+		hdle_iso_view(c, f);
+	hdle_nor_view(c, f);
+	b.inf = hdle_inc(c, f);
 	if (b.x == f->c - 1)
 		put_pixel(f, &b, c);
 	while (b.x <= c->x1)

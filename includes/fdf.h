@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:43:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/14 22:26:50 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/20 22:54:20 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,17 @@ typedef struct s_coords
 	int	y1;
 	int	z0;
 	int	z1;
+	int	slope;
+	int	is_slope;
+	int	color;
 }	t_coords;
+
+typedef struct s_inc_axis
+{
+	int	x_step;
+	int	y_step;
+	int	max;
+}	t_inc_axis;
 
 typedef struct s_stack_info
 {
@@ -95,15 +105,16 @@ typedef struct s_data {
 
 typedef struct s_bresenham
 {
-	int	x;
-	int	y;
-	int	x_pos;
-	int	y_pos;
-	int	z;
-	int	dx;
-	int	dy;
-	int	dz;
-	int	p;
+	int			x;
+	int			y;
+	t_inc_axis	inf;
+	int			x_pos;
+	int			y_pos;
+	int			z;
+	int			dx;
+	int			dy;
+	int			dz;
+	int			p;
 }	t_b;
 
 typedef struct s_increment
@@ -168,5 +179,25 @@ int		win_close(t_fdf *fdf);
 
 /* isometric */
 void	init_coord(t_coords *c);
+
+/* draw utils */
+void	set_color(t_fdf *f, t_coords *c);
+void	hdle_normal_view(t_fdf *f, t_coords *c);
+void	hdle_iso_view(t_fdf *f, t_coords *c);
+void	hdle_inc(t_fdf *f, t_coords *c);
+
+/* mutation utils */
+void	zoom(t_coords *c, t_fdf *f);
+void	translation(t_coords *c, t_fdf *f);
+void	rotate(t_coords *c, t_fdf *f);
+void	zoom(t_coords *c, t_fdf *f);
+void	translation(t_coords *c, t_fdf *f);
+
+
+/* Rotation function */
+void	rot_x(t_coords *c, t_fdf *f);
+void	rot_y(t_coords *c, t_fdf *f);
+void	rot_z(t_coords *c, t_fdf *f);
+void	isometric(t_coords *c, t_fdf *f);
 
 #endif

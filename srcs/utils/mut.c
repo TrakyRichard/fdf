@@ -6,12 +6,11 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:46:11 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/20 22:23:21 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/21 22:53:50 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
-;
 
 void	zoom(t_coords *c, t_fdf *f)
 {
@@ -39,7 +38,7 @@ void	rotate(t_coords *c, t_fdf *f)
 	return ;
 }
 
-void	isometric(t_coords *c, t_fdf *f)
+void	isometric(t_coords *c)
 {
 	c->x0 = (c->x0 - c->y0) * cos(0.8);
 	c->y0 = (c->x0 - c->y0) * sin(0.8) - c->z0;

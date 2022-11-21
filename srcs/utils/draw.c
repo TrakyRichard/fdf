@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:07:42 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/20 22:36:02 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/21 22:45:58 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,24 +61,18 @@ void	bresenham(t_coords *c, t_fdf *f)
 	t_b	b;
 
 	init_bresenham(&b, c);
-	set_color(c, f);
+	set_color(f, c);
 	if (f->wi.is_iso == 1)
-		hdle_iso_view(c, f);
-	hdle_nor_view(c, f);
-	b.inf = hdle_inc(c, f);
+		hdle_iso_view(f, c);
+	hdle_normal_view(f, c);
 	if (b.x == f->c - 1)
-		put_pixel(f, &b, c);
-	while (b.x <= c->x1)
+		draw_y_axis(c, f, &b);
+	else if (b.y == f->r - 1)
+		draw_x_axis(c, f, &b);
+	else
 	{
-		put_pixel(f, &b, c);
-		b.x++;
-		if (b.p < 0)
-			b.p = b.p + (2 * b.dy);
-		else
-		{
-			b.p = b.p + (2 * b.dy) - (2 * b.dx);
-			b.y++;
-		}
+		draw_x_axis(c, f, &b);
+		draw_y_axis(c, f, &b);
 	}
 	return ;
 }

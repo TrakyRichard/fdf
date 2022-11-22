@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 06:18:23 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/02 09:11:42 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:23:06 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	free_st(t_st **h, t_st **t, int *size)
 	*t = NULL;
 	return ;
 }
-
 
 void	free_fdf(t_fdf *fdf)
 {

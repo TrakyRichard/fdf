@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:07:42 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/21 22:45:58 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:43:05 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,28 +46,29 @@ void	init_bresenham(t_b *b, t_coords *c)
 	b->y = c->y0;
 	b->dx = c->x1 - c->x0;
 	b->dy = c->y1 - c->y0;
-	b->p = 2 * b->dx - b->dy;
+	b->p = (2 * b->dy) - b->dx;
 	return ;
 }
 
 void	put_pixel(t_fdf *f, t_b	*b, t_coords *c)
 {
-	mlx_pixel_put(f->wi.mlx_ptr, f->wi.win_ptr, b->x_pos, \
-	b->y_pos, c->color);
+	mlx_pixel_put(f->wi.mlx_ptr, f->wi.win_ptr, b->x, \
+	b->y, c->color);
+	return ;
 }
 
 void	bresenham(t_coords *c, t_fdf *f)
 {
 	t_b	b;
 
-	init_bresenham(&b, c);
 	set_color(f, c);
 	if (f->wi.is_iso == 1)
 		hdle_iso_view(f, c);
 	hdle_normal_view(f, c);
-	if (b.x == f->c - 1)
+	init_bresenham(&b, c);
+	if (b.x == ((f->c - 1) * f->wi.zoom) + f->wi.shift_x)
 		draw_y_axis(c, f, &b);
-	else if (b.y == f->r - 1)
+	else if (b.y == ((f->r - 1) * f->wi.zoom) + f->wi.shift_y)
 		draw_x_axis(c, f, &b);
 	else
 	{

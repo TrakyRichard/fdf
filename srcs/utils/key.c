@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:36:04 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/14 21:55:15 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:11:44 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	is_valid_key(int key)
 	return (key == 123 || key == 124 || key == 125 || key == 126 \
 			|| key == 18 || key == 19 || key == 20 || key == 21 \
 			|| key == 22 || key == 23 \
-			|| key == 26 || key == 28 || key == 25 || key == 29 \
-			|| key == 27 || key == 24);
+			|| key == 6 || key == 7 || key == 24 || key == 27 \
+			|| key == 11 || key == 33);
 }
 
 void	manage_trans(int key, t_winfo *wi)
@@ -53,20 +53,20 @@ void	manage_rot(int key, t_winfo *wi)
 
 void	manage_mut(int key, t_winfo *wi)
 {
-	if (key == 26)
+	if (key == 6)
 		wi->z_multi += 0.2;
-	if (key == 28)
+	if (key == 7)
 		wi->z_multi -= 0.2;
-	if (key == 25)
+	if (key == 24)
 		wi->zoom += 5;
-	if (key == 29)
+	if (key == 27)
 	{
 		if (wi->zoom > 0)
 			wi->zoom -= 5;
 	}
-	if (key == 27)
+	if (key == 11)
 		wi->is_blur = !wi->is_blur;
-	if (key == 24)
+	if (key == 34)
 		wi->is_iso = !wi->is_iso;
 	return ;
 }
@@ -78,9 +78,11 @@ int	key_handler(int key, t_fdf *fdf)
 	{
 		if (key >= 123 && key <= 126)
 			manage_trans(key, &fdf->wi);
-		if ((key >= 53 && key <= 57) || key == 48)
+		if (key == 6 || key == 7 || key == 24 || key == 27 \
+			|| key == 11 || key == 33)
 			manage_mut(key, &fdf->wi);
-		if ((key >= 37 && key <= 40) || (key >= 91 && key <= 92))
+		if (key == 18 || key == 19 || key == 20 || key == 21 \
+			|| key == 22 || key == 23)
 			manage_rot(key, &fdf->wi);
 		if (key == 53)
 		{

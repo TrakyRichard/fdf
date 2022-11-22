@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 07:20:09 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/09 23:37:58 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:36:42 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,25 @@ int	abs(int a)
 	else
 		return (a);
 }
+
+// char	*int_to_hex(int color)
+// {
+// 	int		n;
+// 	char	*res;
+
+// 	n = 1;
+// 	while (color / 16 > 0)
+// 		n++;
+// 	res = malloc((n + 1) * sizeof(int));
+// 	if (res == NULL)
+// 		return (NULL);
+// 	while (color > 0)
+// 	{
+// 		if (n % 16 > 9)
+// 			res[n--] = n % 16 + 'A' - 10;
+// 		else
+// 			res[n--] = n % 16 + '0';
+// 		color /= 16;
+// 	}
+// 	return (res);
+// }

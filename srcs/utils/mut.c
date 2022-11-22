@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:46:11 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/21 22:53:50 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:14:59 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	zoom(t_coords *c, t_fdf *f)
 {
-	c->x0 += f->wi.zoom;
-	c->x1 += f->wi.zoom;
-	c->x0 += f->wi.zoom;
-	c->y1 += f->wi.zoom;
+	c->x0 *= f->wi.zoom;
+	c->x1 *= f->wi.zoom;
+	c->y0 *= f->wi.zoom;
+	c->y1 *= f->wi.zoom;
 	return ;
 }
 

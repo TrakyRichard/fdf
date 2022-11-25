@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:10:30 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/22 17:08:14 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/23 23:11:21 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	display_menu(t_fdf *d)
 	mlx_string_put(mlx_ptr, win_ptr, 10, 160, color, "rotate x -> 1,2");
 	mlx_string_put(mlx_ptr, win_ptr, 10, 190, color, "rotate y -> 3,4");
 	mlx_string_put(mlx_ptr, win_ptr, 10, 220, color, "rotate z -> 5,6");
-	mlx_string_put(mlx_ptr, win_ptr, 10, 220, color, "z multi -> z,x");
-	mlx_string_put(mlx_ptr, win_ptr, 10, 220, color, "is iso -> i");
-	mlx_string_put(mlx_ptr, win_ptr, 10, 220, color, "is blur -> b");
+	mlx_string_put(mlx_ptr, win_ptr, 10, 250, color, "z multi -> z,x");
+	mlx_string_put(mlx_ptr, win_ptr, 10, 280, color, "is iso -> i");
+	mlx_string_put(mlx_ptr, win_ptr, 10, 310, color, "is blur -> b");
 	return ;
 }

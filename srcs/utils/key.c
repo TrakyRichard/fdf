@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:36:04 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/22 17:11:44 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/25 20:02:31 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_valid_key(int key)
 			|| key == 18 || key == 19 || key == 20 || key == 21 \
 			|| key == 22 || key == 23 \
 			|| key == 6 || key == 7 || key == 24 || key == 27 \
-			|| key == 11 || key == 33);
+			|| key == 11 || key == 33 || key == 53 || key == 3);
 }
 
 void	manage_trans(int key, t_winfo *wi)
@@ -89,6 +89,11 @@ int	key_handler(int key, t_fdf *fdf)
 			mlx_destroy_window(fdf->wi.mlx_ptr, fdf->wi.win_ptr);
 			free_fdf(fdf);
 			exit(EXIT_SUCCESS);
+		}
+		if (key == 3)
+		{
+			fdf->wi.win_x = 2500;
+			fdf->wi.win_y = 1400;
 		}
 		mlx_clear_window(fdf->wi.mlx_ptr, fdf->wi.win_ptr);
 		draw(fdf);

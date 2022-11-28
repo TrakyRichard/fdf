@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: richard <richard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:43:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/25 19:23:01 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:42:17 by richard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,8 @@ int		index_of(char *s, char c);
 /* draw */
 void	draw(t_fdf *fdf);
 void	set_coord(t_st *st, t_coords *c, t_fdf *f);
+int     set_coord_x(t_st *st, t_coords *c, t_fdf *f);
+int     set_coord_y(t_st *st, t_coords *c, t_fdf *f);
 void	put_pixel(t_fdf *f, t_b *b, t_coords *c);
 void	bresenham(t_coords *c, t_fdf *f);
 
@@ -184,7 +186,7 @@ void	init_coord(t_coords *c);
 void	set_color(t_fdf *f, t_coords *c);
 void	hdle_normal_view(t_fdf *f, t_coords *c);
 void	hdle_iso_view(t_fdf *f, t_coords *c);
-void	draw_axis(t_coords *c, t_fdf *f, t_b *b, char axis);
+void	draw_axis(t_coords *c, t_fdf *f, t_b *b);
 void	init_bresenham(t_b *b, t_coords *c);
 
 /* mutation utils */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: richard <richard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 20:34:24 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/25 19:08:15 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:42:19 by richard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,37 +42,37 @@ void	hdle_iso_view(t_fdf *f, t_coords *c)
 	return ;
 }
 
-void	draw_axis(t_coords *c, t_fdf *f, t_b *b, char axis)
+void	draw_axis(t_coords *c, t_fdf *f, t_b *b)
 {
 	int	x;
 	int	y;
 
 	x = b->x;
 	y = b->y;
-	while (b->x < c->x1 && (axis == 'x' || axis == 'a'))
+	while ((b->x < c->x1) || (b->y < c->y1))
 	{
 		put_pixel(f, b, c);
 		b->x++;
-		// if (b->p < 0)
-		// 	b->p = b->p + (2 * b->dy);
-		// else
-		// {
-		// 	b->p = b->p + (2 * b->dy) - (2 * b->dx);
-		// 	b->y++;
-		// }
+		if (b->p < 0)
+			b->p = b->p + (2 * b->dy);
+		else
+		{
+			b->p = b->p + (2 * b->dy) - (2 * b->dx);
+			b->y++;
+		}
 	}
-	b->x = x;
-	b->y = y;
-	while (b->y < c->y1 && (axis == 'y' || axis == 'a'))
-	{
-		put_pixel(f, b, c);
-		b->y++;
-		// if (b->p < 0)
-		// 	b->p = b->p + (2 * b->dx);
-		// else
-		// {
-		// 	b->p = b->p + (2 * b->dx) - (2 * b->dy);
-		// 	b->x++;
-		// }
-	}
+	// b->x = x;
+	// b->y = y;
+	// while (b->y < c->y1 && (axis == 'y' || axis == 'a'))
+	// {
+	// 	put_pixel(f, b, c);
+	// 	b->y++;
+	// 	// if (b->p < 0)
+	// 	// 	b->p = b->p + (2 * b->dx);
+	// 	// else
+	// 	// {
+	// 	// 	b->p = b->p + (2 * b->dx) - (2 * b->dy);
+	// 	// 	b->x++;
+	// 	// }
+	// }
 }

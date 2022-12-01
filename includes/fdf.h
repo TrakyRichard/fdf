@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: richard <richard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:43:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/28 13:42:17 by richard          ###   ########.fr       */
+/*   Updated: 2022/11/30 23:13:41 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,8 +161,8 @@ int		index_of(char *s, char c);
 /* draw */
 void	draw(t_fdf *fdf);
 void	set_coord(t_st *st, t_coords *c, t_fdf *f);
-int     set_coord_x(t_st *st, t_coords *c, t_fdf *f);
-int     set_coord_y(t_st *st, t_coords *c, t_fdf *f);
+int		set_coord_x(t_st *st, t_coords *c, t_fdf *f);
+int		set_coord_y(t_st *st, t_coords *c, t_fdf *f);
 void	put_pixel(t_fdf *f, t_b *b, t_coords *c);
 void	bresenham(t_coords *c, t_fdf *f);
 
@@ -195,6 +195,7 @@ void	translation(t_coords *c, t_fdf *f);
 void	rotate(t_coords *c, t_fdf *f);
 void	zoom(t_coords *c, t_fdf *f);
 void	translation(t_coords *c, t_fdf *f);
+int		round_no(float n);
 
 /* Rotation function */
 void	rot_x(t_coords *c, t_fdf *f);

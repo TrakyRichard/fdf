@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 07:20:09 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/22 16:36:42 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/30 10:11:36 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,20 @@ int	index_of(char *s, char c)
 		counter++;
 	}
 	return (-1);
+}
+
+int	round_no(float n)
+{
+	int	f;
+
+	if (n > 0)
+		f = floor(n);
+	else
+		return (floor(n));
+	if (n - f > 0)
+		return (f + 1.0);
+	else
+		return (f);
 }
 
 int	abs(int a)

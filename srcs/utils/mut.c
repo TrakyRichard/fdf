@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:46:11 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/22 13:14:59 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/11/30 10:49:48 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	rotate(t_coords *c, t_fdf *f)
 void	isometric(t_coords *c)
 {
 	c->x0 = (c->x0 - c->y0) * cos(0.8);
-	c->y0 = (c->x0 - c->y0) * sin(0.8) - c->z0;
+	c->y0 = (c->x0 + c->y0) * sin(0.8) - c->z0;
 	c->x1 = (c->x1 - c->y1) * cos(0.8);
-	c->y1 = (c->x1 - c->y1) * sin(0.8) - c->z1;
+	c->y1 = (c->x1 + c->y1) * sin(0.8) - c->z1;
 	return ;
 }

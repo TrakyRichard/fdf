@@ -3,46 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: richard <richard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:07:42 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/28 13:42:56 by richard          ###   ########.fr       */
+/*   Updated: 2022/11/30 23:04:40 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
-
-int	set_coord_x(t_st *st, t_coords *c, t_fdf *f)
-{
-	init_coord(c);
-	c->x0 = st->i.x;
-	c->y0 = st->i.y;
-	c->x1 = st->i.x;
-	if (c->x0 == f->c - 1)
-		return (0);
-	else
-		c->x1 = st->i.x + 1;
-	c->z0 = f->elts[c->y0][c->x0].z_val;
-	c->z1 = f->elts[c->y1][c->x1].z_val;
-	c->slope = c->z0 - c->z1;
-	return (1);
-}
-
-int set_coord_y(t_st *st, t_coords *c, t_fdf *f)
-{
-	init_coord(c);
-	c->x0 = st->i.x;
-	c->y0 = st->i.y;
-	c->y1 = st->i.y;
-	if (c->y0 == f->r - 1)
-		return (0);
-	else
-		c->y1 = st->i.y + 1;
-	c->z0 = f->elts[c->y0][c->x0].z_val;
-	c->z1 = f->elts[c->y1][c->x1].z_val;
-	c->slope = c->z0 - c->z1;
-	return (1);
-}
 
 void	draw(t_fdf *fdf)
 {

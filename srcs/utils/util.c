@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 07:20:09 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/30 10:11:36 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:11:54 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,12 @@ int	index_of(char *s, char c)
 	return (-1);
 }
 
-int	round_no(float n)
+int	max(int a, int b)
 {
-	int	f;
-
-	if (n > 0)
-		f = floor(n);
+	if (a > b)
+		return (a);
 	else
-		return (floor(n));
-	if (n - f > 0)
-		return (f + 1.0);
-	else
-		return (f);
+		return (b);
 }
 
 int	abs(int a)

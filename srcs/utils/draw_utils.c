@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 20:34:24 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/30 11:19:10 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:33:18 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,15 @@ void	draw_axis(t_coords *c, t_fdf *f, t_b *b)
 
 	x = b->x;
 	y = b->y;
-	while ((b->x < c->x1) || (b->y < c->y1))
+	b->dx = c->x1 - c->x0;
+	b->dy = c->y1 - c->y0;
+	b->ax.max = max(b->dy, b->dx);
+	b->ax.xinc = b->dx / b->ax.max;
+	b->ax.yinc = b->dy / b->ax.max;
+	while ((b->x <= c->x1) || (b->y <= c->y1))
 	{
 		put_pixel(f, b, c);
-		if (b->x < c->x1)
-			b->x++;
-		if (b->p < 0)
-			b->p = b->p + (2 * b->dy);
-		else
-		{
-			b->p = b->p + (2 * b->dy) - (2 * b->dx);
-			b->y++;
-		}
+		b->x += b->ax.xinc;
+		b->y += b->ax.yinc;
 	}
 }

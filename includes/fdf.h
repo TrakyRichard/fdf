@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:43:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/30 23:13:41 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:15:22 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ typedef struct s_elements
 
 typedef struct s_coords
 {
-	int	x0;
-	int	x1;
-	int	y0;
-	int	y1;
-	int	z0;
-	int	z1;
-	int	slope;
-	int	is_slope;
-	int	color;
+	double	x0;
+	double	x1;
+	double	y0;
+	double	y1;
+	double	z0;
+	double	z1;
+	int		slope;
+	int		is_slope;
+	int		color;
 }	t_coords;
 
 typedef struct s_inc_axis
 {
-	int	x_step;
-	int	y_step;
-	int	max;
+	double	xinc;
+	double	yinc;
+	double	max;
 }	t_ax;
 
 typedef struct s_stack_info
@@ -107,13 +107,10 @@ typedef struct s_bresenham
 {
 	int		x;
 	int		y;
-	t_ax	inf;
-	int		x_pos;
-	int		y_pos;
+	t_ax	ax;
 	int		z;
 	int		dx;
 	int		dy;
-	int		dz;
 	int		p;
 }	t_b;
 
@@ -157,6 +154,7 @@ void	ft_free_dbl_point(char **str);
 /* utils */
 int		hex_to_int(char *hex);
 int		index_of(char *s, char c);
+int		max(int a, int b);
 
 /* draw */
 void	draw(t_fdf *fdf);

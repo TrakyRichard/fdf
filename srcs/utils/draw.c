@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:07:42 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/30 23:04:40 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:41:41 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	init_bresenham(t_b *b, t_coords *c)
 	b->y = c->y0;
 	b->dx = c->x1 - c->x0;
 	b->dy = c->y1 - c->y0;
-	b->p = (2 * b->dy) - b->dx;
 	return ;
 }
 

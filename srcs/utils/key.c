@@ -6,21 +6,11 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 03:36:04 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/28 20:21:57 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:17:09 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fdf.h"
-
-int	is_valid_key(int key)
-{
-	return (key == 123 || key == 124 || key == 125 || key == 126 \
-			|| key == 18 || key == 19 || key == 20 || key == 21 \
-			|| key == 22 || key == 23 \
-			|| key == 6 || key == 7 || key == 24 || key == 27 \
-			|| key == 11 || key == 33 || key == 53 || key == 3 \
-			|| key == 34);
-}
 
 void	manage_trans(int key, t_winfo *wi)
 {
@@ -52,6 +42,35 @@ void	manage_rot(int key, t_winfo *wi)
 	return ;
 }
 
+void	extra_keys(int key, t_fdf *fdf)
+{
+	t_winfo	*wi;
+
+	wi = &fdf->wi;
+	if (key == 15)
+	{
+		wi->rot_x = 0.0;
+		wi->rot_y = 0.0;
+		wi->rot_z = 0.0;
+		wi->is_iso = !wi->is_iso;
+	}
+	else if (key == 3)
+	{
+		mlx_destroy_window(fdf->wi.mlx_ptr, fdf->wi.win_ptr);
+		wi->win_x = 2600;
+		wi->win_y = 1440;
+		wi->zoom = 3;
+		wi->scale = 35;
+		wi->shift_x = wi->win_x / 2;
+		wi->shift_y = wi->win_y / 4;
+		wi->win_ptr = mlx_new_window(wi->mlx_ptr, wi->win_x, wi->win_y, "FDF");
+		draw(fdf);
+		mlx_key_hook(fdf->wi.win_ptr, &key_handler, fdf);
+		mlx_hook(fdf->wi.win_ptr, 17, 1, &win_close, fdf);
+		mlx_loop(fdf->wi.mlx_ptr);
+	}
+}
+
 void	manage_mut(int key, t_winfo *wi)
 {
 	if (key == 6)
@@ -74,7 +93,6 @@ void	manage_mut(int key, t_winfo *wi)
 
 int	key_handler(int key, t_fdf *fdf)
 {
-	printf("the fdf is %d", key);
 	if (is_valid_key(key))
 	{
 		if (key >= 123 && key <= 126)
@@ -91,11 +109,8 @@ int	key_handler(int key, t_fdf *fdf)
 			free_fdf(fdf);
 			exit(EXIT_SUCCESS);
 		}
-		if (key == 3)
-		{
-			fdf->wi.win_x = 2500;
-			fdf->wi.win_y = 1400;
-		}
+		if (key == 3 || key == 15)
+			extra_keys(key, fdf);
 		mlx_clear_window(fdf->wi.mlx_ptr, fdf->wi.win_ptr);
 		draw(fdf);
 	}

@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 06:17:21 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/25 19:25:40 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:33:52 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ void	init_win_info(t_winfo *wi)
 	wi->win_y = 1080;
 	wi->zoom = 2;
 	wi->scale = 35;
-	wi->shift_x = wi->win_x / 2;
-	wi->shift_y = wi->win_y / 4;
+	wi->shift_x = wi->win_x / 4;
+	wi->shift_y = wi->win_y / 6;
+	wi->rot_x = 0.0;
+	wi->rot_y = 0.0;
+	wi->rot_z = 0.0;
 	wi->mlx_ptr = mlx_init();
 	wi->win_ptr = mlx_new_window(wi->mlx_ptr, wi->win_x, wi->win_y, "FDF");
 	return ;

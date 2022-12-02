@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 04:43:22 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/12/02 17:15:22 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:09:46 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ typedef struct s_elements
 
 typedef struct s_coords
 {
-	double	x0;
-	double	x1;
-	double	y0;
-	double	y1;
-	double	z0;
-	double	z1;
+	float	x0;
+	float	x1;
+	float	y0;
+	float	y1;
+	float	z0;
+	float	z1;
 	int		slope;
 	int		is_slope;
 	int		color;
@@ -42,9 +42,9 @@ typedef struct s_coords
 
 typedef struct s_inc_axis
 {
-	double	xinc;
-	double	yinc;
-	double	max;
+	float	xinc;
+	float	yinc;
+	float	max;
 }	t_ax;
 
 typedef struct s_stack_info
@@ -105,13 +105,12 @@ typedef struct s_data {
 
 typedef struct s_bresenham
 {
-	int		x;
-	int		y;
+	float	x;
+	float	y;
 	t_ax	ax;
-	int		z;
-	int		dx;
-	int		dy;
-	int		p;
+	float	z;
+	float	dx;
+	float	dy;
 }	t_b;
 
 typedef struct s_increment
@@ -154,24 +153,23 @@ void	ft_free_dbl_point(char **str);
 /* utils */
 int		hex_to_int(char *hex);
 int		index_of(char *s, char c);
-int		max(int a, int b);
+float	f_max(float a, float b);
 
 /* draw */
 void	draw(t_fdf *fdf);
 void	set_coord(t_st *st, t_coords *c, t_fdf *f);
-int		set_coord_x(t_st *st, t_coords *c, t_fdf *f);
-int		set_coord_y(t_st *st, t_coords *c, t_fdf *f);
 void	put_pixel(t_fdf *f, t_b *b, t_coords *c);
 void	bresenham(t_coords *c, t_fdf *f);
+float	f_abs(float a);
 
 /* display */
 void	display_menu(t_fdf *d);
 
 /* key */
-int		is_valid_key(int key);
 void	manage_trans(int key, t_winfo *wi);
 void	manage_rot(int key, t_winfo *wi);
 void	manage_mut(int key, t_winfo *wi);
+void	extra_keys(int key, t_fdf *fdf);
 int		key_handler(int key, t_fdf *fdf);
 
 /* close */
@@ -186,6 +184,7 @@ void	hdle_normal_view(t_fdf *f, t_coords *c);
 void	hdle_iso_view(t_fdf *f, t_coords *c);
 void	draw_axis(t_coords *c, t_fdf *f, t_b *b);
 void	init_bresenham(t_b *b, t_coords *c);
+void	compute_slope(int *slope, t_b *b);
 
 /* mutation utils */
 void	zoom(t_coords *c, t_fdf *f);
@@ -201,4 +200,12 @@ void	rot_y(t_coords *c, t_fdf *f);
 void	rot_z(t_coords *c, t_fdf *f);
 void	isometric(t_coords *c);
 
+/* Set coordonate */
+void	drawing_by_x(t_coords *c, t_fdf *f, t_b *b);
+void	drawing_by_y(t_coords *c, t_fdf *f, t_b *b);
+int		set_coord_x(t_st *st, t_coords *c, t_fdf *f);
+int		set_coord_y(t_st *st, t_coords *c, t_fdf *f);
+
+/* check utils */
+int		is_valid_key(int key);
 #endif

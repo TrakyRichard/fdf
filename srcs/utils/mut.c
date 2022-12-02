@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:46:11 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/30 10:49:48 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:53:42 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,8 @@ void	isometric(t_coords *c)
 	c->y1 = (c->x1 + c->y1) * sin(0.8) - c->z1;
 	return ;
 }
+
+/* 	c->x0 = round_no((c->x0 - c->y0) * cos(0.8));
+	c->y0 = round_no((c->x0 + c->y0) * sin(0.8) - c->z0);
+	c->x1 = round_no((c->x1 - c->y1) * cos(0.8));
+	c->y1 = round_no((c->x1 + c->y1) * sin(0.8) - c->z1); */

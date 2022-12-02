@@ -3,7 +3,7 @@ SRCS = ./srcs/fdf.c ./srcs/utils/error.c ./srcs/utils/init.c ./srcs/utils/ops.c 
 		./srcs/utils/parser.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
 		./srcs/utils/io.c ./srcs/utils/util.c ./srcs/utils/free.c ./srcs/utils/display.c ./srcs/utils/draw.c \
 		./srcs/utils/close.c ./srcs/utils/key.c ./srcs/utils/draw_utils.c ./srcs/utils/set_coord.c ./srcs/utils/rot.c \
-		./srcs/utils/mut.c
+		./srcs/utils/mut.c ./srcs/utils/check.c
 LIBFT = libft.a
 LIBFT_DIR = libft/
 GNL_DIR = get_next_line/

@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 22:20:33 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/12/01 11:22:48 by rkanmado         ###   ########.fr       */
+/*   Created: 2022/12/01 10:11:57 by rkanmado          #+#    #+#             */
+/*   Updated: 2022/12/01 10:12:52 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "../../includes/fdf.h"
 
-int	main(int argc, char *argv[])
+int	is_valid_key(int key)
 {
-	t_fdf	fdf;
-
-	init_fdf(&fdf);
-	if (argc != 2)
-		ft_error("Usage: ./fdf [./test_maps/file]");
-	parser(argv[1], &fdf);
-	draw(&fdf);
-	mlx_key_hook(fdf.wi.win_ptr, &key_handler, &fdf);
-	mlx_hook(fdf.wi.win_ptr, 17, 1, &win_close, &fdf);
-	mlx_loop(fdf.wi.mlx_ptr);
-	return (0);
+	return (key == 123 || key == 124 || key == 125 || key == 126 \
+			|| key == 18 || key == 19 || key == 20 || key == 21 \
+			|| key == 22 || key == 23 \
+			|| key == 6 || key == 7 || key == 24 || key == 27 \
+			|| key == 11 || key == 33 || key == 53 || key == 3 \
+			|| key == 34 || key == 15);
 }

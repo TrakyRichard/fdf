@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 07:20:09 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/12/02 17:11:54 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/02 18:07:50 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	index_of(char *s, char c)
 	return (-1);
 }
 
-int	max(int a, int b)
+float	f_max(float a, float b)
 {
 	if (a > b)
 		return (a);
@@ -64,7 +64,7 @@ int	max(int a, int b)
 		return (b);
 }
 
-int	abs(int a)
+float	f_abs(float a)
 {
 	if (a < 0)
 		return (a * -1);

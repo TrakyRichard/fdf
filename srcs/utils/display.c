@@ -6,7 +6,7 @@
 /*   By: rkanmado <rkanmado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:10:30 by rkanmado          #+#    #+#             */
-/*   Updated: 2022/11/23 23:11:21 by rkanmado         ###   ########.fr       */
+/*   Updated: 2022/12/01 09:55:19 by rkanmado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	display_menu(t_fdf *d)
 	mlx_string_put(mlx_ptr, win_ptr, 10, 250, color, "z multi -> z,x");
 	mlx_string_put(mlx_ptr, win_ptr, 10, 280, color, "is iso -> i");
 	mlx_string_put(mlx_ptr, win_ptr, 10, 310, color, "is blur -> b");
+	mlx_string_put(mlx_ptr, win_ptr, 10, 310, color, "reset -> r");
 	return ;
 }
